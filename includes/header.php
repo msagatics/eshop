@@ -1,85 +1,212 @@
 <?php
 include __DIR__ . "/head.php";
+$current_page = basename($_SERVER['PHP_SELF']);
+
 ?>
 
-<div class="container sticky-top">
-    <div class="row">
-        <div class="col">
-            <nav class="navbar navbar-expand-lg rounded-bottom px-2 mt-0" style="background-color: #f1f0ee;">
-                <div class="container-fluid">
-                    <a class="navbar-brand eshop-logo" href="index.php">
-                        <img src="<?php echo BASE_URL; ?>eshop-logo/logo.png" alt="eshop" class="d-inline-block img-fluid" style="width: 80px;">
-                    </a>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <!--Navigation Items-->
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav mx-auto me-auto mb-2 mb-lg-0">
-                            <li class="nav-item">
-                                <a class="nav-link" aria-current="page" href="<?php echo BASE_URL; ?>index.php">Home</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Products</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">My Account</a>
-                            </li>
-                            <li class="nav-item me-2">
-                                <a href="#" class="nav-link position-relative d-inline-flex align-items-center">
-                                    <i class="fa-solid fa-cart-arrow-down fs-5"></i>
-                                    <span class="position-absolute top-0 start-100 translate-middle badge bg-danger rounded-pill" style="font-size: 10px;">
-                                        0
-                                    </span>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Total: Tsh 0/=</a>
-                            </li>
-                        </ul>
-                        <div class="search-wrapper me-3">
-                            <i class="bi bi-search toggle-search"></i>
+<base href="<?php echo BASE_URL; ?>">
 
-                            <div class="search-box shadow">
-                                <form>
-                                    <input
-                                        type="search"
-                                        class="form-control"
-                                        placeholder="Search products...">
-                                </form>
-                            </div>
-                        </div>
-                        <div class="text-center d-flex justify-content-center gap-2 flex-wrap">
-                            <a href="#" class="btn btn-outline-success py-1 px-2" style="font-size: 15px;">
-                                <i class="bi bi-box-arrow-in-right me-1"></i> Sign in
-                            </a>
-                            <a href="#" class="btn btn-primary py-1 px-2" style="font-size: 15px;">
-                                <i class="bi bi-person-plus me-1"></i> Sign up
-                            </a>
-                            <a href="#" class="btn btn-outline-danger py-1 px-2" style="font-size: 15px;">
-                                <i class="bi bi-box-arrow-left me-1"></i> Logout
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </nav>
+<div class="container top-header py-2 sticky-top">
+    <div class="container d-flex justify-content-between align-items-center flex-wrap">
+
+        <!-- Logo -->
+        <a class="navbar-brand m-0" href="index.php">
+            <img src="<?= image('logo.png'); ?>"
+                alt="eshop"
+                class="logo-img">
+        </a>
+
+        <!-- Search -->
+        <div class="header-search mx-lg-4 my-3 my-lg-0">
+
+            <form class="search-form">
+
+                <input type="search"
+                    placeholder="Search for products">
+
+                <button type="submit">
+                    <i class="bi bi-search"></i>
+                </button>
+
+            </form>
+
         </div>
+
+        <!-- Right Actions -->
+        <div class="header-actions d-flex align-items-center gap-3">
+
+            <a href="#" class="action-link text-primary">
+                <i class="bi bi-person"></i>
+                <span>Sign in</span>
+            </a>
+
+            <a href="#" class="action-link">
+                <i class="bi bi-box-arrow-in-left"></i>
+                <span class="">Sign up</span>
+            </a>
+
+            <a href="#" class="action-link position-relative">
+                <i class="bi bi-cart3"></i>
+
+                <span class="cart-badge">
+                    0
+                </span>
+            </a>
+
+        </div>
+
     </div>
+
+    <!--Second header-->
+
+    <div class="category-wrapper pt-2 sticky-top">
+
+        <div class="category-navbar">
+
+            <!-- Header Link -->
+
+            <a href="<?= url('index.php'); ?>"
+                class="<?= ($current_page == 'index.php') ? 'active-link' : 'nav-category'; ?>">
+                Home
+            </a>
+
+            <a href="<?= url('products/products.php'); ?>"
+                class="<?= ($current_page == 'products.php') ? 'active-link' : 'nav-category'; ?>">
+                Products
+            </a>
+
+            <!-- Electronics -->
+
+            <div class="dropdown">
+
+                <a href="#"
+                    class="nav-category dropdown-toggle"
+                    data-bs-toggle="dropdown">
+
+                    Electronics
+
+                </a>
+
+                <ul class="dropdown-menu category-dropdown border-0 shadow">
+
+                    <li>
+                        <a class="dropdown-item" href="#">
+                            Smartphones
+                        </a>
+                    </li>
+
+                    <li>
+                        <a class="dropdown-item" href="#">
+                            Laptops
+                        </a>
+                    </li>
+
+                    <li>
+                        <a class="dropdown-item" href="#">
+                            Gaming
+                        </a>
+                    </li>
+
+                    <li>
+                        <a class="dropdown-item" href="#">
+                            Headphones
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+            <!-- Fashion -->
+
+            <div class="dropdown">
+
+                <a href="#"
+                    class="nav-category dropdown-toggle"
+                    data-bs-toggle="dropdown">
+
+                    Fashion
+
+                </a>
+
+                <ul class="dropdown-menu category-dropdown border-0 shadow">
+
+                    <li>
+                        <a class="dropdown-item" href="#">
+                            Men's Clothing
+                        </a>
+                    </li>
+
+                    <li>
+                        <a class="dropdown-item" href="#">
+                            Women's Clothing
+                        </a>
+                    </li>
+
+                    <li>
+                        <a class="dropdown-item" href="#">
+                            Shoes
+                        </a>
+                    </li>
+
+                    <li>
+                        <a class="dropdown-item" href="#">
+                            Bags
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+            <!-- Normal Links -->
+
+            <a href="#" class="nav-category">
+                Automotive
+            </a>
+
+            <a href="#" class="nav-category">
+                Appliances
+            </a>
+
+            <!-- MORE -->
+
+            <div class="dropdown">
+
+                <a href="#"
+                    class="nav-category dropdown-toggle"
+                    data-bs-toggle="dropdown">
+
+                    More
+
+                </a>
+
+                <ul class="dropdown-menu category-dropdown border-0 shadow">
+
+                    <li>
+                        <a class="dropdown-item" href="#">
+                            Beauty
+                        </a>
+                    </li>
+
+                    <li>
+                        <a class="dropdown-item" href="#">
+                            Sports
+                        </a>
+                    </li>
+
+                    <li>
+                        <a class="dropdown-item" href="#">
+                            Home Decor
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+    </div>
+
 </div>
-
-<script>
-    const wrapper = document.querySelector('.search-wrapper');
-    const toggle = document.querySelector('.toggle-search');
-
-    toggle.addEventListener('click', (e) => {
-        e.stopPropagation();
-        wrapper.classList.toggle('active');
-        wrapper.querySelector('input').focus();
-    });
-
-    document.addEventListener('click', (e) => {
-        if (!wrapper.contains(e.target)) {
-            wrapper.classList.remove('active');
-        }
-    });
-</script>

@@ -1,6 +1,5 @@
 <?php
 include __DIR__ . "/functions/functions.php";
-define('BASE_URL', '/eshop/');
 
 if (!isset($title)) {
     $title = "eshop - Home";
@@ -18,7 +17,7 @@ include __DIR__ . "/includes/header.php";
         <!-- 🎥 Background Video -->
         <video id="heroVideo" autoplay muted loop playsinline
             class="position-absolute top-0 start-0 w-100 h-100 object-fit-cover">
-            <source src="eshop-slide/slideshow_1.mp4" type="video/mp4">
+            <source src="<?= image('slider/slideshow_1.mp4'); ?>" type="video/mp4">
         </video>
 
         <!-- 🌈 Gradient Overlay (better than flat dark) -->
@@ -57,37 +56,38 @@ include __DIR__ . "/includes/header.php";
     <div class="container my-3 p-0">
         <div class="row p-0">
 
-            <div class="container py-4 text-center bg-body-tertiary">
+            <div class="container py-4 text-center">
 
                 <div class="d-flex align-items-center justify-content-center">
                     <div style="height:2px; width:80px; background:#db3e4d;"></div>
 
-                    <h2 class="fw-bold mx-3 mb-0" style="color:#db3e4d;">
-                        Discover What You Love
+                    <h2 class="fw-bold mx-3 mb-0">
+                        Today's deals
                     </h2>
 
                     <div style="height:2px; width:80px; background:#db3e4d;"></div>
                 </div>
 
-                <p class="text-muted mt-1 mb-0">
-                    Explore Our Collection
-                </p>
             </div>
 
             <!-- Sidebar -->
             <div class="col-12 col-md-4 col-lg-3 col-xl-2 mt-4 p-0">
                 <div class="sidebar">
                     <div class="bg-body-tertiary rounded pt-2">
-                        <h5 class="fw-semibold ms-3 border-2 border-danger pb-1 border-bottom d-inline-block">Products by Category</h5>
+                        <h6 class="fw-bold text-muted mb-3 ms-3 border-1 border-danger pb-1 border-bottom d-inline-block">
+                            <i class="bi bi-grid me-2 text-danger"></i>Shop by Categories
+                        </h6>
                         <ul class=" list-unstyled category-list">
                             <?php getAllCategories(); ?>
                         </ul>
                     </div>
 
                     <div class="bg-body-tertiary rounded mt-4 pt-2">
-                        <h5 class="fw-semibold ms-3 border-2 border-danger pb-1 border-bottom d-inline-block">Help & Settings</h5>
+                        <h6 class="fw-bold text-muted mb-3 ms-3 border-1 border-danger pb-1 border-bottom d-inline-block">
+                            <i class="bi bi-gear me-2 text-primary"></i>Help & Settings
+                        </h6>
                         <ul class=" list-unstyled help-list">
-                            <li class="ps-3 py-2 rounded"><i class="bi bi-gear me-1"></i>Your Account</li>
+                            <li class="ps-3 py-2 rounded"><i class="bi bi-person me-1"></i>Your Account</li>
                             <li class="ps-3 py-2 rounded"><i class="bi bi-translate text-primary me-2"></i>English</li>
                             <li class="ps-3 py-2 rounded">🇹🇿 Tanzania</li>
                             <li class="ps-3 py-2 rounded"><i class="bi bi-headset text-primary me-2"></i>Customer Service</li>
@@ -99,7 +99,7 @@ include __DIR__ . "/includes/header.php";
 
             <!-- Products -->
             <div class="col-12 col-md-8 col-lg-9 col-xl-10 mt-4 products">
-                <div class="row">
+                <div class="row g-3">
                     <?php
                     getAllProducts();
                     getProductsByCategories();
